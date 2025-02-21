@@ -5,7 +5,7 @@
  * Description: Adds better compatibility with Bricks Builder.
  * Author: Misha Rudrastyh
  * Author URI: https://rudrastyh.com
- * Version: 1.0
+ * Version: 1.1
  */
 
 class Rudr_SWC_Bricks_Builder {
@@ -16,7 +16,14 @@ class Rudr_SWC_Bricks_Builder {
 
 	public function process( $meta_value, $meta_key, $object_id, $blog ) {
 
-		if( '_bricks_page_content_2' !== $meta_key ) {
+		if( ! in_array(
+			$meta_key,
+			array(
+				'_bricks_page_header_2',
+				'_bricks_page_content_2',
+				'_bricks_page_footer_2',
+			)
+		) ) {
 			return $meta_value;
 		}
 
