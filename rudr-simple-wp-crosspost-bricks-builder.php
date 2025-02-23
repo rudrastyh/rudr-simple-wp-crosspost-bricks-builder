@@ -5,7 +5,7 @@
  * Description: Adds better compatibility with Bricks Builder.
  * Author: Misha Rudrastyh
  * Author URI: https://rudrastyh.com
- * Version: 1.1
+ * Version: 1.2
  */
 
 class Rudr_SWC_Bricks_Builder {
@@ -45,6 +45,12 @@ class Rudr_SWC_Bricks_Builder {
 						foreach( $brick[ 'settings' ][ 'items' ][ 'images' ] as &$image ) {
 							$image = $this->process_image_in_brick( $image, $blog );
 						}
+					}
+					break;
+				}
+				case 'logo' : {
+					if( ! empty( $brick[ 'settings' ][ 'logo' ] ) ) {
+						$brick[ 'settings' ][ 'logo' ] = $this->process_image_in_brick( $brick[ 'settings' ][ 'logo' ], $blog );
 					}
 					break;
 				}
